@@ -1,0 +1,86 @@
+body{
+    display: grid;
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+    grid-template-areas: 
+        'header header header'
+        'main main main'
+        'main main main'
+        'main main main'
+        'footer footer footer';
+}
+
+main{
+    height: 80vh;
+    grid-area: main;
+    background-image: url("imagenes/fondo_pagina.PNG");
+}
+
+header{
+    grid-area: header;
+}
+
+/* .ul-header{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+} */
+
+.ul-header li{
+    display: inline;
+    align-content: center;
+    justify-items: space-evenly;
+    padding: 10px;
+}
+
+.ul-header{
+    margin-top: 40px;
+    margin-left: 100px;
+}
+
+.ul-header a{
+    text-decoration:none;
+}
+
+.nav-header{
+    display: inline;
+    /* height: 100px; */
+}
+ 
+@keyframes aparecer {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+ }
+ 
+main h1{
+    font-size: 100px;
+    justify-items: center;
+    align-items: center;
+    animation-duration: 2s;
+    animation-name: aparecer;
+    animation-iteration-count: infinite;
+}
+
+main p{
+    font-size: 30px;
+    justify-items: center;
+    align-items: center;
+}
+
+footer{
+    grid-area: footer;
+    /* height: 50px; */
+}
+.footer{
+    display: inline-flex;
+}
+
+.footer li{
+    display: inline-flex;
+}
+
