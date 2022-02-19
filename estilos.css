@@ -11,7 +11,7 @@ body{
         'footer footer footer';
 }
 
-main{
+.mainindex{
     height: 80vh;
     grid-area: main;
     background-image: url("imagenes/fondo_pagina.PNG");
@@ -57,7 +57,7 @@ header{
     }
  }
  
-main h1{
+.mainindex h1{
     font-size: 100px;
     justify-items: center;
     align-items: center;
@@ -66,12 +66,14 @@ main h1{
     animation-iteration-count: infinite;
 }
 
-main p{
+.mainindex p{
     font-size: 30px;
     justify-items: center;
     align-items: center;
 }
-
+.mainservicios{
+    grid-area: main;
+}
 footer{
     grid-area: footer;
     /* height: 50px; */
