@@ -1,0 +1,23 @@
+$redes: (
+        facebook:  #3a5795,
+        instagram: #be188d
+); 
+
+@each $red, $color in $redes {
+   .redes--#{$red} {
+       background-color: $color;
+   }
+}
+.redes {
+	width: 20px;
+    height: 20px;	
+    display: inline
+}
+
+.redes--facebook--imagen{
+	@extend .redes;
+}
+
+.redes--instagram--imagen{
+	@extend .redes;
+}
