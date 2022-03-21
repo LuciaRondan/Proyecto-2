@@ -16,8 +16,8 @@ body{
 
 .mainindex{
     height: 80vh;
-    grid-area: main;
     background-image: url("../imagenes/fondo_pagina.PNG");
+    background-size: cover;
     h1{
         font-size: 100px;
         justify-items: center;
