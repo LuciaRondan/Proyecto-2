@@ -23,7 +23,7 @@
                     data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <div class="collapse navbar-collapse text-center" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
@@ -36,39 +36,40 @@
         </nav>
     </header>
     <main>
-        <section>
+        <div class="container">
             <h1>Pedinos tu Presupuesto</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ea illo quibusdam beatae necessitatibus rerum doloribus officiis qui illum quidem, architecto maxime vitae repudiandae quam dolore excepturi eos odio atque.</p>
-        </section>
-        <form action="">
-            <div class="form-group col-md-6 col-sm-12">
+            <p>Envianos tu solicitud y estaremos contactandote a la brevedad para armar un presupuesto a tu medida!</p>
+    
+         <form action="">
+            <div class="form-group col-lg-6 col-md-6 col-sm-12">
                 <label for="nombre">Nombre</label>
-                <input type="text" name="Nombre" id="Nombre" required placeholder="Tu Nombre">
+                <input class= "form-control" type="text" name="Nombre" id="Nombre" required placeholder="Tu Nombre">
             </div>
-            <div class="form-group col-md-6 col-sm-12">
+            <div class="form-group col-lg-6 col-md-6 col-sm-12">
                 <label for="telefono">Telefono</label>
-                <input type="tel" name="Telefono" id="Telefono" required placeholder="Tu telefono">
+                <input class= "form-control" type="tel" name="Telefono" id="Telefono" required placeholder="Tu telefono">
             </div>
-            <div class="form-group col-md-6 col-sm-12">
+            <div class="form-group col-lg-6 col-md-6 col-sm-12">
                 <label for="fecha de evento">Fecha del Evento</label>
-                <input type="date" name="Fecha del evento" id="Fecha del Evento" required placeholder="Fecha del Evento">
+                <input class= "form-control" type="date" name="Fecha del evento" id="Fecha del Evento" required placeholder="Fecha del Evento">
             </div>
-            <div class="form-group col-md-6 col-sm-12">
+            <div class="form-group col-lg-6 col-md-6 col-sm-12">
                 <label for="lugar">Lugar</label>
-                <input type="text" name="Lugar" id="Lugar" placeholder="Lugar del Evento">
+                <input class= "form-control" type="text" name="Lugar" id="Lugar" placeholder="Lugar del Evento">
             </div>
-            <div class="form-group col-md-6 col-sm-12">
+            <div class="form-group col-lg-6 col-md-6 col-sm-12">
                 <label for="email">Email</label>
-                <input type="mail" name="Email" id="Email" required placeholder="Tu email">
+                <input class= "form-control" type="mail" name="Email" id="Email" required placeholder="Tu email">
             </div>
-            <div class="form-group col-md-6 col-sm-12">
+            <div class="form-group col-lg-6 col-md-6 col-sm-12">
                 <label for="Comentario">Comentario</label>
-                <textarea name="Comentario" id="Comentario" cols="30" rows="10" placeholder="Escribinos tu mensaje o consulta"></textarea>
+                <textarea class= "form-control" name="Comentario" id="Comentario" rows="10" placeholder="Escribinos tu mensaje o consulta"></textarea>
             </div>
-            <div class="form-group col-md-6 col-sm-12">
-                <input type="submit">
+            <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                <input class= "btn btn-info" type="submit">
             </div>
-        </form>
+         </form>
+        </div>
     </main>
     <footer class="bg-light text-center text-white">
         <div class="container p-4 pb-0">
@@ -90,5 +91,8 @@
             Copyright 2022 | Pagina creada por Lucia Rondan | Todos los derechos reservados.
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 </body>
 </html>
