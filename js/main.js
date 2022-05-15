@@ -10,8 +10,10 @@ do {
         5. Salir
     `);
 
-    let servicio = obtenerServicioPorOpcion(opcion);
-    serviciosElegidos.push(servicio);
+    if(opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4 ) {
+        let servicio = obtenerServicioPorOpcion(opcion);
+        serviciosElegidos.push(servicio);
+    }
 } while (opcion != 5)
 
 let precioTotal = calcularPrecioTotal(serviciosElegidos);
