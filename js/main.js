@@ -1,69 +1,60 @@
-let servicio = prompt (`Servicios:
-    1. Sonido
-    2. Iluminacion
-    3. DJ
-    4. Efectos especiales
-    5. Salir
-`);
+let serviciosElegidos = [];
+let opcion = 5;
 
-let edad = prompt("Ingrese su edad");
+do {
+    opcion = prompt (`Servicios:
+        1. Sonido
+        2. Iluminacion
+        3. DJ
+        4. Efectos especiales
+        5. Salir
+    `);
 
-CalcularPrecio(servicio, edad);
+    let servicio = obtenerServicioPorOpcion(opcion);
+    serviciosElegidos.push(servicio);
+} while (opcion != 5)
 
+let precioTotal = calcularPrecioTotal(serviciosElegidos);
+alert(precioTotal);
 
+///////////////////////////////////////////////////////////////////
 
-
-
-
-
-function CalcularPrecio(servicio, edad){
-
-    let precioDelServicio = 0;
-
-    switch(servicio){
-        case "1": 
-            precioDelServicio = 1000;
-            break;
-        case "2": 
-            precioDelServicio = 2000;
-            break;
-        case "3": 
-            precioDelServicio = 3000;
-            break;
-        case "4": 
-            precioDelServicio = 4000;
-            break;
-        default:
-            precioDelServicio = 0;
-            break;
-
+function obtenerServicioPorOpcion (opcion){
+    switch(opcion){
+        case "1": return crearSonido();
+        case "2": return crearIluminacion();
+        case "3": return crearDj();
+        case "4": return crearEfectosEspeciales();
     }
-
-    const precioObject = new Precio(precioDelServicio, edad);
-
-    precioObject.aplicarDescuento();
-    alert(precioObject.precio);
 }
 
-
-
-function Precio(precio, edad = 0){
+function Servicio(nombre, precio) {
+    this.nombre = nombre;
     this.precio = precio;
-    this.edad = edad;
-    
-    this.mereceDescuento = () => {
-        if(this.edad == 15){
-            return true;
-        }
-        return false
-    }
-    this.aplicarDescuento = () => {
-        if(this.mereceDescuento()){
-            this.precio *= 0.8;
-        }
-    }
 }
-    
 
+function crearSonido(){
+    return new Servicio("Sonido", 1000);
+}
 
+function crearIluminacion(){
+    return new Servicio("Iluminacion", 2000);
+}
 
+function crearDj(){
+    return new Servicio("dj", 3000);
+}
+
+function crearEfectosEspeciales(){
+    return new Servicio("Efectos especiales", 4000);
+}
+
+function calcularPrecioTotal(serviciosElegidos){
+
+    let suma = 0;
+    console.log(serviciosElegidos)
+     serviciosElegidos.forEach(x => {
+        suma += x.precio;
+     });
+     return suma;
+}
