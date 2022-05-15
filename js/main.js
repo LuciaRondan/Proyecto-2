@@ -17,7 +17,7 @@ do {
 } while (opcion != 5)
 
 let precioTotal = calcularPrecioTotal(serviciosElegidos);
-alert(precioTotal);
+alert("El precio total de los servicios seleccionados es " + precioTotal);
 
 ///////////////////////////////////////////////////////////////////
 
