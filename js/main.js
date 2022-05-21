@@ -1,25 +1,56 @@
+let parrafoServiciosSeleccionados = document.createElement("p");
+let parrafoPrecioTotal = document.createElement("p");
+let mensaje = `Servicios Seleccionados: `;
 let serviciosElegidos = [];
-let opcion = 5;
+let boton = document.getElementById("btnCalcular");
 
-do {
-    opcion = prompt (`Servicios:
-        1. Sonido
-        2. Iluminacion
-        3. DJ
-        4. Efectos especiales
-        5. Salir
-    `);
+boton.addEventListener("click", () => {
 
-    if(opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4 ) {
-        let servicio = obtenerServicioPorOpcion(opcion);
-        serviciosElegidos.push(servicio);
-    }
-} while (opcion != 5)
+    let opcion = document.getElementById("servicioSeleccion").value;
 
-let precioTotal = calcularPrecioTotal(serviciosElegidos);
-alert("El precio total de los servicios seleccionados es " + precioTotal);
+    let objeto = obtenerServicioPorOpcion(opcion);
 
-///////////////////////////////////////////////////////////////////
+    serviciosElegidos.push(objeto);
+
+    let precioTotal = calcularPrecioTotal(serviciosElegidos);
+   
+
+    mensaje += `${objeto.nombre }, `
+
+    parrafoServiciosSeleccionados.innerHTML = mensaje;
+    parrafoPrecioTotal.innerHTML = `Precio total: ${precioTotal}`;
+
+    let seleccionDeServicios = document.getElementById("seleccionDeServicios");
+    seleccionDeServicios.appendChild(parrafoServiciosSeleccionados);
+    let elementPrecioTotal = document.getElementById("seleccionDeServicios");
+    elementPrecioTotal.appendChild(parrafoPrecioTotal);
+})
+
+
+
+
+// let serviciosElegidos = [];
+// let opcion = 5;
+
+// do {
+//     opcion = prompt (`Servicios:
+//         1. Sonido
+//         2. Iluminacion
+//         3. DJ
+//         4. Efectos especiales
+//         5. Salir
+//     `);
+
+//     if(opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4 ) {
+//         let servicio = obtenerServicioPorOpcion(opcion);
+//         serviciosElegidos.push(servicio);
+//     }
+// } while (opcion != 5)
+
+// let precioTotal = calcularPrecioTotal(serviciosElegidos);
+// alert("El precio total de los servicios seleccionados es " + precioTotal);
+
+// ///////////////////////////////////////////////////////////////////
 
 function obtenerServicioPorOpcion (opcion){
     switch(opcion){
@@ -54,7 +85,6 @@ function crearEfectosEspeciales(){
 function calcularPrecioTotal(serviciosElegidos){
 
     let suma = 0;
-    console.log(serviciosElegidos)
      serviciosElegidos.forEach(x => {
         suma += x.precio;
      });
