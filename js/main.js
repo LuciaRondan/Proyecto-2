@@ -1,56 +1,43 @@
 let parrafoServiciosSeleccionados = document.createElement("p");
 let parrafoPrecioTotal = document.createElement("p");
 let mensaje = `Servicios Seleccionados: `;
+let mensaje2 = localStorage.getItem("resumen");
 let serviciosElegidos = [];
 let boton = document.getElementById("btnCalcular");
+
+if(mensaje2 != null){
+    let nuevoObjeto = JSON.parse(mensaje2);
+
+    parrafoServiciosSeleccionados.innerHTML = nuevoObjeto.servicios;
+    parrafoPrecioTotal.innerHTML = `Precio total: ${nuevoObjeto.precioTotal}`;
+    
+    let seleccionDeServicios = document.getElementById("seleccionDeServicios");
+    seleccionDeServicios.appendChild(parrafoServiciosSeleccionados);
+    let elementPrecioTotal = document.getElementById("seleccionDeServicios");
+    elementPrecioTotal.appendChild(parrafoPrecioTotal);
+}
 
 boton.addEventListener("click", () => {
 
     let opcion = document.getElementById("servicioSeleccion").value;
-
     let objeto = obtenerServicioPorOpcion(opcion);
-
     serviciosElegidos.push(objeto);
 
     let precioTotal = calcularPrecioTotal(serviciosElegidos);
-   
+
+    guardarLocal("resumen", JSON.stringify(new ResumenServicios(serviciosElegidos, precioTotal)));
 
     mensaje += `${objeto.nombre }, `
 
     parrafoServiciosSeleccionados.innerHTML = mensaje;
     parrafoPrecioTotal.innerHTML = `Precio total: ${precioTotal}`;
-
+    
     let seleccionDeServicios = document.getElementById("seleccionDeServicios");
     seleccionDeServicios.appendChild(parrafoServiciosSeleccionados);
     let elementPrecioTotal = document.getElementById("seleccionDeServicios");
     elementPrecioTotal.appendChild(parrafoPrecioTotal);
 })
 
-
-
-
-// let serviciosElegidos = [];
-// let opcion = 5;
-
-// do {
-//     opcion = prompt (`Servicios:
-//         1. Sonido
-//         2. Iluminacion
-//         3. DJ
-//         4. Efectos especiales
-//         5. Salir
-//     `);
-
-//     if(opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4 ) {
-//         let servicio = obtenerServicioPorOpcion(opcion);
-//         serviciosElegidos.push(servicio);
-//     }
-// } while (opcion != 5)
-
-// let precioTotal = calcularPrecioTotal(serviciosElegidos);
-// alert("El precio total de los servicios seleccionados es " + precioTotal);
-
-// ///////////////////////////////////////////////////////////////////
 
 function obtenerServicioPorOpcion (opcion){
     switch(opcion){
@@ -59,6 +46,16 @@ function obtenerServicioPorOpcion (opcion){
         case "3": return crearDj();
         case "4": return crearEfectosEspeciales();
     }
+}
+
+function ResumenServicios(serviciosElegidos, precioTotal) {
+    let nombres = "";
+    serviciosElegidos.forEach(element => {
+        nombres += `${element.nombre }, `
+    });
+
+    this.servicios = nombres
+    this.precioTotal = precioTotal;
 }
 
 function Servicio(nombre, precio) {
@@ -89,4 +86,8 @@ function calcularPrecioTotal(serviciosElegidos){
         suma += x.precio;
      });
      return suma;
+}
+
+function guardarLocal(clave, valor){
+    localStorage.setItem(clave, valor)
 }
