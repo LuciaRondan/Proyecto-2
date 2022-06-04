@@ -31,6 +31,7 @@ boton.addEventListener("click", () => {
 
     parrafoServiciosSeleccionados.innerHTML = mensaje;
     parrafoPrecioTotal.innerHTML = `Precio total: ${precioTotal}`;
+    Swal.fire(`Precio total: ${precioTotal}`);
     
     let seleccionDeServicios = document.getElementById("seleccionDeServicios");
     seleccionDeServicios.appendChild(parrafoServiciosSeleccionados);
