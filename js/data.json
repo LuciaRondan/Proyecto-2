@@ -1,0 +1,18 @@
+[
+    {
+        "nombre": "Sonido",
+        "precio": 1000
+    },
+    {
+        "nombre": "Iluminacion",
+        "precio": 2000
+    },
+    {
+        "nombre": "dj",
+        "precio": 3000
+    },
+    {
+        "nombre": "Esfectos especiales",
+        "precio": 4000
+    }
+]

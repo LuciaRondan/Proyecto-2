@@ -18,9 +18,9 @@ if(mensaje2 != null){
 }
 
 boton.addEventListener("click", () => {
-
     let opcion = document.getElementById("servicioSeleccion").value;
     let objeto = obtenerServicioPorOpcion(opcion);
+    console.log(objeto);
     serviciosElegidos.push(objeto);
 
     let precioTotal = calcularPrecioTotal(serviciosElegidos);
@@ -39,15 +39,25 @@ boton.addEventListener("click", () => {
     elementPrecioTotal.appendChild(parrafoPrecioTotal);
 })
 
-
 function obtenerServicioPorOpcion (opcion){
-    switch(opcion){
-        case "1": return crearSonido();
-        case "2": return crearIluminacion();
-        case "3": return crearDj();
-        case "4": return crearEfectosEspeciales();
-    }
+    fetch('../js/data.json')
+        .then((resp) => resp.json())
+        .then((data) => {
+            let serv = data[opcion - 1];
+            let nombre = serv["nombre"];
+            let precio = serv["precio"];
+            return new Servicio(nombre, precio);
+        })
 }
+
+// function obtenerServicioPorOpcion (opcion){
+//     switch(opcion){
+//         case "1": return crearSonido();
+//         case "2": return crearIluminacion();
+//         case "3": return crearDj();
+//         case "4": return crearEfectosEspeciales();
+//     }
+// }
 
 function ResumenServicios(serviciosElegidos, precioTotal) {
     let nombres = "";
@@ -64,21 +74,21 @@ function Servicio(nombre, precio) {
     this.precio = precio;
 }
 
-function crearSonido(){
-    return new Servicio("Sonido", 1000);
-}
+// function crearSonido(){
+//     return new Servicio("Sonido", 1000);
+// }
 
-function crearIluminacion(){
-    return new Servicio("Iluminacion", 2000);
-}
+// function crearIluminacion(){
+//     return new Servicio("Iluminacion", 2000);
+// }
 
-function crearDj(){
-    return new Servicio("dj", 3000);
-}
+// function crearDj(){
+//     return new Servicio("dj", 3000);
+// }
 
-function crearEfectosEspeciales(){
-    return new Servicio("Efectos especiales", 4000);
-}
+// function crearEfectosEspeciales(){
+//     return new Servicio("Efectos especiales", 4000);
+// }
 
 function calcularPrecioTotal(serviciosElegidos){
 
