@@ -1,17 +1,21 @@
 [
     {
+        "id": 1,
         "nombre": "Sonido",
         "precio": 1000
     },
     {
+        "id": 2,
         "nombre": "Iluminacion",
         "precio": 2000
     },
     {
+        "id": 3,
         "nombre": "dj",
         "precio": 3000
     },
     {
+        "id": 4,
         "nombre": "Esfectos especiales",
         "precio": 4000
     }
